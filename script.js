@@ -13,7 +13,7 @@ const options = {
 // console.log(options)
 for (let key in options) {
   if (typeof(options[key]) === 'object') {
-
+    console.log('hello')
   }
   console.log(`Свойство ${key} has value ${options[key]}`)
 };
