@@ -1,19 +1,32 @@
-const options = {
-  name: 'test',
-  width: 1024,
-  height: 1024,
-  colors: {
-    border: 'black',
-    background: 'red'
-  }
-};
+const arr = [46,2,3,4];
+arr.sort(compare)
+console.log(arr)
+
+function compare(a,b) {
+  return a - b;
+}
+
+// arr.forEach(function(item,i,arr) {
+//   console.log(`${i} : ${item} inside massive ${arr}`)
+// })
+
+
+// arr[99] = 0;
 //
-// delete options.name;
+// console.log(arr.length);
+
+
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
 //
-// console.log(options)
-for (let key in options) {
-  if (typeof(options[key]) === 'object') {
-    console.log('hello')
-  }
-  console.log(`Свойство ${key} has value ${options[key]}`)
-};
+// for (let value of arr) {
+//   console.log(value)
+// }
+
+// const str = prompt("",'');
+// const products = str.split(", ");
+//
+// products.sort()
+//
+// console.log(products.join(';'))
