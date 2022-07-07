@@ -1,29 +1,45 @@
-const personalPlanPeter = {
-    name: 'Aikyn',
-    age: '18',
-    skills: {
-        languages: ['ru','eng'],
-        programmingLangs: {
-            js: '20%',
-            php: '10%'
-        },
-        exp: '1 month'
-    },
-    showAgeAndLangs: function (plan) {
-        const {age} = plan;
-        const {languages} = plan.skills
-        let str =  `I am ${age} and i use languages`;
-        languages.forEach(function(lang) {
-            str += `${lang.toUpperCase()}`;
-        });
-        return str;
+let numberOfFilms;
+
+function start() {
+    numberOfFilms = +prompt('How many movies did you see?','');
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('How many movies did you see?','')
     }
 }
-personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+start()
 
-function showExperience(plan) {
-    const {exp} = plan.skills;
-    return exp;
+
+
+
+
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function() {
+        personalMovieDB.count = +prompt('How many movies did you see?','');
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt('How many movies did you see?','')
+        }
+    }
+};
+function rememberMyFilms() {
+    for(let i = 0; i < 2; i++) {
+        const a = prompt('One of your last watched movies?',''),
+            b = prompt('How would you rate this film','');
+        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+            console.log('done')
+        } else {
+            console.log('error');
+            i--;
+        }
+    }
 }
+rememberMyFilms()
 
-showExperience(personalPlanPeter)
+
+
+
