@@ -1,45 +1,61 @@
-let numberOfFilms;
-
-function start() {
-    numberOfFilms = +prompt('How many movies did you see?','');
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('How many movies did you see?','')
-    }
-}
-start()
-
-
-
-
-
-const personalMovieDB = {
-    count: 0,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-    start: function() {
-        personalMovieDB.count = +prompt('How many movies did you see?','');
-        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-            personalMovieDB.count = +prompt('How many movies did you see?','')
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
         }
-    }
-};
-function rememberMyFilms() {
-    for(let i = 0; i < 2; i++) {
-        const a = prompt('One of your last watched movies?',''),
-            b = prompt('How would you rate this film','');
-        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-            console.log('done')
-        } else {
-            console.log('error');
-            i--;
-        }
-    }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
 }
-rememberMyFilms()
+// function a() {
+//     let area = [];
+//     shoppingMallData.shops.forEach((arr,i) => {
+//         const a = arr.width * arr.length;
+//         area[i] = a
+//     });
+//
+//     let mainArea = 0;
+//     for (i of area) {
+//         mainArea += i
+//     }
+//     console.log(mainArea)
+// }
+// a()
 
+function isBudgetEnough() {
+    let area = [];
+    shoppingMallData.shops.forEach((arr,i) => {
+        const a = arr.width * arr.length;
+        area[i] = a
+    });
+    let mainArea = 0;
+    for (i of area) {
+        mainArea += i
+    }
+    const VolumeofСenter = mainArea * shoppingMallData.height;
+    const valueofCenter = shoppingMallData.moneyPer1m3 * VolumeofСenter;
 
+    if (valueofCenter <= shoppingMallData.budget) {
+        console.log(`Volume of shopping center - ${VolumeofСenter}\nValue of shopping center - ${valueofCenter}
+    `)
+    } else {
+        console.log(`Value of shopping center - ${valueofCenter}, but it is not enough`)
+    }
 
+}
 
+isBudgetEnough()
